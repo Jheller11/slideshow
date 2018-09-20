@@ -46,10 +46,10 @@ const color = () => {
 }
 
 // star generator
-const createStars = () => {
-  for (let i = 200; i > 0; i--) {
+const createStars = amount => {
+  for (let i = amount; i > 0; i--) {
     let star = new Star(
-      [random(10, 690), random(10, 990)],
+      [random(10, 690), random(10, screen.width)],
       random(2, 2),
       `hsl( ${color()})`,
       animate()
@@ -61,4 +61,21 @@ const createStars = () => {
   }
 }
 
-createStars()
+// shooting star generator
+const shootingStar = () => {
+  let shooter = new Star(
+    [random(100, -200), random(100, -200)],
+    random(2, 2),
+    `hsl( ${color()})`
+  )
+  let div = document.createElement('div')
+  div.setAttribute('class', 'shooting-star')
+  div.setAttribute('style', shooter.style())
+  starContainer.appendChild(div)
+}
+
+setInterval(shootingStar, 10000)
+
+// start on page load
+
+createStars(100)

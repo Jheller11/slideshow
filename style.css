@@ -1,7 +1,44 @@
 body {
   margin: 0;
-  background-color: rgb(7, 8, 14);
+  background-color: rgb(12, 14, 26);
   color: whitesmoke;
+}
+
+.secondary {
+  font-size: 66%;
+  opacity: 0.8;
+}
+
+header {
+  display: none;
+}
+
+/* Shooting Star + Animation */
+.shooting-star {
+  top: 10px;
+  left: 10px;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  animation: shoot 1.5s ease-in;
+}
+
+@keyframes shoot {
+  from {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.01;
+    top: 800px;
+    left: 1000px;
+  }
 }
 
 /* Stars Animation Layer */
