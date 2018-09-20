@@ -1,15 +1,13 @@
 body {
   margin: 0;
-}
-
-.animations {
-  min-height: 800px;
-  width: 100%;
   background-color: rgb(7, 8, 14);
+  color: whitesmoke;
 }
 
+/* Stars Animation Layer */
 .stars-container {
-  /* z-index: -1; */
+  height: 800px;
+  width: 100%;
 }
 
 .star {
@@ -26,3 +24,4 @@ body {
     opacity: 0.5;
   }
 }
+/* Stars Animation Layer */

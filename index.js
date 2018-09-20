@@ -35,13 +35,23 @@ const animate = () => {
   return blinking
 }
 
+// color?
+const color = () => {
+  let color = Math.random()
+  if (color >= 0.33) {
+    return '0, 0%, 100%'
+  } else {
+    return color >= 0.165 ? '0, 59%, 70%' : '230, 59%, 70%'
+  }
+}
+
 // star generator
 const createStars = () => {
   for (let i = 200; i > 0; i--) {
     let star = new Star(
       [random(10, 690), random(10, 990)],
       random(2, 2),
-      `rgb(${random(230, 25)}, 255, ${random(230, 25)})`,
+      `hsl( ${color()})`,
       animate()
     )
     let div = document.createElement('div')
