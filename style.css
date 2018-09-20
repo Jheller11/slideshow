@@ -1,0 +1,15 @@
+.animations {
+  height: 700px;
+  width: 100%;
+  background-color: rgb(7, 8, 14);
+}
+
+.stars-container {
+  /* z-index: -1; */
+}
+
+.star {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+}
