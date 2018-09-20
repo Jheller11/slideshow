@@ -11,21 +11,44 @@ class Star {
     this.blinking = blinking
   }
 
-  render() {
+  //   generate string for inline style when element added
+  style() {
     let string = `top: ${this.position[0]}px; left: ${
       this.position[1]
-    }px; background-color: ${this.color}`
+    }px; background-color: ${this.color}; width: ${this.size}px; height: ${
+      this.size
+    }px; ${
+      this.blinking ? 'animation: blink 2s infinite ease-in-out' : ''
+    }; animation-delay: ${random(0, 4)}s;`
     return string
   }
 }
 
-const star1 = new Star([50, 50], 10, '#FFFFFF', false)
+// random num generator for star properties
+const random = (min, max) => {
+  return Math.floor(Math.random() * max) + min
+}
 
-let div = document.createElement('div')
-div.setAttribute('class', 'star')
-div.setAttribute('style', star1.render())
-starContainer.appendChild(div)
+// animate?
+const animate = () => {
+  let blinking = Math.random() >= 0.5
+  return blinking
+}
 
-console.log(div)
+// star generator
+const createStars = () => {
+  for (let i = 200; i > 0; i--) {
+    let star = new Star(
+      [random(10, 690), random(10, 990)],
+      random(2, 2),
+      `rgb(${random(230, 25)}, 255, ${random(230, 25)})`,
+      animate()
+    )
+    let div = document.createElement('div')
+    div.setAttribute('class', 'star')
+    div.setAttribute('style', star.style())
+    starContainer.appendChild(div)
+  }
+}
 
-console.log(star1.render())
+createStars()
