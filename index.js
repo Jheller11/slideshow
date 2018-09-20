@@ -62,6 +62,7 @@ const createStars = amount => {
 }
 
 // shooting star generator
+
 const shootingStar = () => {
   let shooter = new Star(
     [random(100, -200), random(100, -200)],
@@ -74,8 +75,11 @@ const shootingStar = () => {
   starContainer.appendChild(div)
 }
 
-setInterval(shootingStar, 10000)
+let shootingStarsInterval = () => {
+  setInterval(shootingStar, 10000)
+}
 
 // start on page load
 
 createStars(100)
+shootingStarsInterval()
