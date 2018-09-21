@@ -71,3 +71,19 @@ section {
   background-color: rgb(243, 243, 243);
   color: rgb(12, 14, 26);
 }
+
+#a {
+  background-color: blue;
+}
+
+#b {
+  background-color: red;
+}
+
+#c {
+  background-color: green;
+}
+
+#d {
+  background-color: yellow;
+}
