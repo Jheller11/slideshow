@@ -49,7 +49,7 @@ const color = () => {
 const createStars = amount => {
   for (let i = amount; i > 0; i--) {
     let star = new Star(
-      [random(10, 690), random(10, screen.width)],
+      [random(10, 690), random(10, screen.width - 150)],
       random(2, 2),
       `hsl( ${color()})`,
       animate()
@@ -75,11 +75,6 @@ const shootingStar = () => {
   starContainer.appendChild(div)
 }
 
-let shootingStarsInterval = () => {
-  setInterval(shootingStar, 10000)
-}
-
 // start on page load
 
 createStars(100)
-shootingStarsInterval()

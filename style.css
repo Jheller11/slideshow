@@ -42,8 +42,8 @@ header {
 }
 
 /* Stars Animation Layer */
-.stars-container {
-  height: 800px;
+.star-container {
+  height: 100vh;
   width: 100%;
 }
 
@@ -62,3 +62,12 @@ header {
   }
 }
 /* Stars Animation Layer */
+
+/* Sections */
+
+section {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(243, 243, 243);
+  color: rgb(12, 14, 26);
+}
