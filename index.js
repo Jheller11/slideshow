@@ -17,9 +17,19 @@ class Slide {
 }
 
 class Slideshow {
-  constructor(array, event, slides = [], activeSlide = 0, nextSlide = 1) {
+  constructor(
+    array,
+    event,
+    upTrigger,
+    downTrigger,
+    slides = [],
+    activeSlide = 0,
+    nextSlide = 1
+  ) {
     this.array = array
     this.event = event
+    this.upTrigger = upTrigger
+    this.downTrigger = downTrigger
     this.slides = slides
     this.activeSlide = activeSlide
     this.nextSlide = nextSlide
@@ -48,8 +58,27 @@ class Slideshow {
     }
   }
 
+  scrollToPreviousSlide() {
+    if (this.activeSlide === 0) {
+      this.slides[this.slides.length - 1].smoothScroll()
+      this.activeSlide = this.slides[this.slides.length - 1]
+      this.nextSlide = this.activeSlide + 1
+    } else {
+      this.slides[this.activeSlide - 1].smoothScroll()
+      this.activeSlide -= 1
+      this.nextSlide -= 1
+    }
+  }
+
   addEvents() {
-    window.addEventListener(this.event, this.scrollToNextSlide.bind(this))
+    this.downTrigger.addEventListener(
+      this.event,
+      this.scrollToNextSlide.bind(this)
+    )
+    this.upTrigger.addEventListener(
+      this.event,
+      this.scrollToPreviousSlide.bind(this)
+    )
     window.addEventListener('scroll', () => {
       this.activeSlide = this.getActiveSlide()
       this.nextSlide = this.activeSlide + 1
@@ -71,7 +100,10 @@ class Slideshow {
   }
 }
 
-const mySlideShow = new Slideshow(sections, 'click')
+const upTrigger = document.querySelector('#up')
+const downTrigger = document.querySelector('#down')
+
+const mySlideShow = new Slideshow(sections, 'click', upTrigger, downTrigger)
 mySlideShow.createSlideshow()
 
 // -------------------------------------------------------------------------------
