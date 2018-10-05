@@ -78,6 +78,3 @@ const shootingStar = () => {
 // start on page load
 
 createStars(100)
-shootingStar()
-shootingStar()
-shootingStar()
