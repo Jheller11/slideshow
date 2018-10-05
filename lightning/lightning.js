@@ -1,12 +1,12 @@
 const container = document.querySelector('.container')
 
-const bolt = () => {
+const bolt = index => {
   let div = document.createElement('div')
   div.setAttribute('class', 'bolt')
-  div.innerHTML = '<svg width="900" height="500"></svg>'
+  div.innerHTML = '<svg width="900" height="700"></svg>'
   container.appendChild(div)
-  let svg = document.querySelector('svg')
-  svg.innerHTML = generatePath()
+  let svg = document.querySelectorAll('svg')
+  svg[index].innerHTML = generatePath()
 }
 
 const random = (min, range) => {
@@ -15,18 +15,12 @@ const random = (min, range) => {
 
 const generatePath = () => {
   let pathString = ''
-
   let points = []
   points.push('M' + random(15, 700) + ' ' + random(10, 100))
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 20; i++) {
     points.push('l' + random(-40, 80) + ' ' + random(20, 20))
   }
   pathString += points.join('')
-
   let string = `<path stroke="yellow" fill="transparent" d="${pathString}" />`
-  console.log(points)
   return string
 }
-
-bolt()
-bolt()
