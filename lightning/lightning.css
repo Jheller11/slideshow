@@ -7,3 +7,7 @@ body {
   height: 100vh;
   background-color: rgb(15, 15, 10);
 }
+
+.bolt {
+  position: absolute;
+}
