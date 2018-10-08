@@ -11,3 +11,18 @@ body {
 .bolt > * {
   position: absolute;
 }
+
+path {
+  animation: lightningBolt 1s linear;
+  opacity: 0;
+}
+
+@keyframes lightningBolt {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

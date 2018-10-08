@@ -1,4 +1,7 @@
-const container = document.querySelector('.container')
+const settings = {
+  frequency: 2000,
+  number: 2
+}
 
 const bolt = index => {
   let div = document.querySelector('.bolt')
@@ -23,5 +26,10 @@ const generatePath = () => {
   return string
 }
 
-bolt(0)
-bolt(1)
+const initiate = () => {
+  for (let i = 0; i < settings.number; i++) {
+    setInterval(() => bolt(i), settings.frequency)
+  }
+}
+
+initiate()
