@@ -5,11 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>SVG Motion</title>
+    <link rel="stylesheet" href="svgmotion.css">
 </head>
 
 <body>
+    <div id="motionPath">
+        <div class="motion-path">
+            <div class="small square el follow-path"></div> <svg width="256" height="500" viewBox="0 0 256 112">
+                <path fill="none" stroke="currentColor" stroke-width="1" d="M8,56 l15 100l15 -100l15 100l15 -100 Z"></path>
+            </svg>
+        </div>
+    </div>
 
+    <script src="../anime.min.js"></script>
+    <script src="svgmotion.js"></script>
 </body>
 
 </html>
