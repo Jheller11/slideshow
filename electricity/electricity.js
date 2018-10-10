@@ -21,27 +21,29 @@ const random = max => {
   return Math.floor(Math.random() * max)
 }
 
-// generate a line
+// Line class
+class Line {
+  constructor(color, width) {
+    this.color = color
+    this.width = width
+    this.element = null
+  }
 
-const line = () => {
-  let path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
-  path.setAttribute('stroke-width', '1')
-  path.setAttribute('stroke', 'orange')
-  path.setAttribute('fill', 'transparent')
-  path.setAttribute(
-    'd',
-    `M250 250l${innerCirclePoints[random(200)]}l${
-      outerCirclePoints[random(200)]
-    }`
-  )
-  console.log(path)
-  svg.appendChild(path)
+  generate() {
+    let path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    path.setAttribute('stroke-width', this.width)
+    path.setAttribute('stroke', this.color)
+    path.setAttribute('fill', 'transparent')
+    path.setAttribute(
+      'd',
+      `M250 250l${innerCirclePoints[random(200)]}l${
+        outerCirclePoints[random(200)]
+      }`
+    )
+    svg.appendChild(path)
+    this.element = path
+  }
 }
 
-line()
-line()
-line()
-
-// add new lines to page
-setInterval(() => line(), 2500)
-// remove lines from page
+const newLine = new Line('red', 3)
+newLine.generate()
